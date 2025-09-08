@@ -17,16 +17,16 @@ void    print_positions(int nb, int *positions)
     printf("\n");
 }
 
-bool    is_valid(int pos, int nb, int *positions, int row)
+bool    is_valid(int pos, int *positions, int row)
 {
-    int i = 0;
+    int i = row - 1;
 
-    while (i < nb && positions[i] != -1)
+    while (i >= 0 && positions[i] != -1)
     {
         int t = positions[i];
         if (pos == t || pos == t + (row - i) || pos == t - (row - i))
             return (false);
-        i++;
+        i--;
     }
     return (true);
 }
@@ -37,7 +37,7 @@ void    solve(int nb, int *positions, int row)
 
     while (pos < nb)
     {
-        if (is_valid(pos, nb, positions, row))
+        if (is_valid(pos, positions, row))
         {
             positions[row] = pos;
             if (row + 1 == nb)
@@ -59,4 +59,16 @@ int main(int ac, char **av)
         return (write(2, "Invalid n of arguments\n", 23));
     nb = atoi(av[1]);
     solve(nb, positions, 0);
+
+    /* PER GESTIRE NUMERI PIU' GRANDI DI 11 (spoiler, è inutile :)*/
+    // int nb = 0;
+    // int *positions;
+
+    // if (ac != 2)
+    //     return (write(2, "Invalid n of arguments\n", 23));
+    // nb = atoi(av[1]);
+    // positions = malloc(nb * sizeof(int));
+    // for (int i = 0; i < nb; i++)
+    //     positions[i] = -1;
+    // solve(nb, positions, 0);
 }
