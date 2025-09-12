@@ -4,6 +4,7 @@
 #include <iostream>
 #include "set.hpp"
 
+// le stampe di debug non ci sono nel main originale
 int main(int ac, char **av)
 {
     if (ac == 1)
