@@ -26,16 +26,16 @@ bool searchable_tree_bag::has(int val) const {
     return false;
 }
 
-void searchable_tree_bag::for_each(void (*f)(int, void*), void* param) const {
-    traverse(tree, f, param);
+tree_bag::node *searchable_tree_bag::get_tree( void ) const {
+    return (tree);
 }
 
-void searchable_tree_bag::traverse(const node* n, void (*f)(int, void*), void* param) {
+void searchable_tree_bag::traverse_and_insert(const node* n, void (*f)(int, void*), void* param) {
     if (!n)
         return;
     f(n->value, param);
-    traverse(n->l, f, param);
-    traverse(n->r, f, param);
+    traverse_and_insert(n->l, f, param);
+    traverse_and_insert(n->r, f, param);
 }
 
 tree_bag::node *searchable_tree_bag::copy_searchable_node(tree_bag::node *n) {

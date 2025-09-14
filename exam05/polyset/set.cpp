@@ -16,7 +16,7 @@ set::set(const searchable_bag &b) : ab_(), tb_() {
     }
     else if (const searchable_tree_bag *ptb = dynamic_cast<const searchable_tree_bag*>(&b)) {
         is_array_ = false;
-        ptb->for_each(insert_callback, this); // importante!! per accedere a node abbiamo bisogno che sia searchable_tree_bag a eseguire l'insert
+        ptb->traverse_and_insert(ptb->get_tree(), insert_callback, this); // importante!! per accedere a node abbiamo bisogno che sia searchable_tree_bag a eseguire l'insert
     }
     else {
         is_array_ = true; // fallback vuoto

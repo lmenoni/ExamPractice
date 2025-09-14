@@ -13,8 +13,8 @@ public:
     searchable_tree_bag& operator=(const searchable_tree_bag& other );
 
     bool has (int val) const;
-    static void traverse(const node* n, void (*f)(int, void*), void* param);
-    void for_each(void (*f)(int, void*), void* param) const;
+    static void traverse_and_insert(const node* n, void (*f)(int, void*), void* param);
+    node *get_tree( void ) const;
     tree_bag::node *copy_searchable_node(tree_bag:: node *n);
 
 };
