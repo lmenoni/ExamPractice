@@ -13,6 +13,9 @@ public:
     searchable_array_bag& operator=(const searchable_array_bag& other );
     bool has (int val) const;
 
+    int *get_data( void ) const;
+    int get_size( void ) const;
+
 };
 
 #endif

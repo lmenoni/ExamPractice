@@ -30,6 +30,9 @@ public:
     void print(void) const;
     void clear(void);
     searchable_bag& get_bag(void);
+    static void insert_callback(int v, void* param);
 
 };
+
+
 #endif
