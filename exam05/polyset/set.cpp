@@ -5,7 +5,7 @@ set::set() : ab_(), tb_(), is_array_(true) {}
 set::set(const searchable_bag &b) : ab_(), tb_() {
     // per fare la copia dobbiamo sapere che tipo di searchable bag è
     // usiamo quindi il dynamic cast (ritorna NULL se fallisce il cast)
-    // l'oggetto poi viene copiato tramite operator=
+    // l'oggetto poi viene copiato valore per valore garantendo l'unicita'
     // da notare che questo costruttore potrebbe non essere l'unico necessario
     // controllare le traces (es set sa(a); prend un puntatore)
     if (auto pab = dynamic_cast<const searchable_array_bag*>(&b)) {

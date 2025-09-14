@@ -10,7 +10,7 @@ searchable bag: an abstract class representing a bag with the ability to search 
 
 
 If you don't know what a set or a bag is, you can read the attached file:
-sets and bags.en.txt (wikipedia)
+sets and bags.en.txt (wikipedia, sostanzialmente una bag senza duplicati)
 #### First part #
 
 Since a bag without a searching function is not very useful, implement two
