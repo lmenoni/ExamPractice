@@ -21,7 +21,7 @@ public:
     set();
     set(const set& other);
     set(const searchable_bag &b);
-    ~set();
+    ~set();    
     set& operator=(const set& other);
     // chiamano l'omonima funzione sull'oggetto
     void insert(int val);

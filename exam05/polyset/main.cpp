@@ -38,7 +38,7 @@ int main(int ac, char **av)
     tmp.has(1);
     std::cout << "CREO SET" << std::endl;
     set sa(*a);
-    set st(*t);
+    set st(*a);
     for (int i = 1; i < ac; i++)
     {
         st.insert(atoi(av[i]));
