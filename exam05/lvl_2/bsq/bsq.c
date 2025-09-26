@@ -14,7 +14,6 @@ void    print_result(t_vctr best, int size, char **map, char full)
     int i = 0;
     int j = 0;
 
-    fprintf(stdout, "best x: %d best y: %d\n", best.x, best.y);
     while (map[i])
     {
         j = 0;
@@ -81,22 +80,13 @@ int main(int ac, char **av)
 
     data = (t_data){0};
     if (ac == 1)
+        input = stdin;
+    else
     {
-        if (parsing(stdin, &data))
-            solve(&data, data.map);
-        return (1);
+        input = fopen(av[1], "r");
+        if (!input)
+            return (fprintf(stdout, "ERROR: open file\n"), 1);
     }
-
-    int i = 1;
-    while (i < ac)
-    {
-        data = (t_data){0};
-        input = fopen(av[i], "r");
-        if (input)
-        {
-            if (parsing(input, &data))
-                solve(&data, data.map);
-        }
-        i++;
-    }
+    if (parsing(input, &data))
+        solve(&data, data.map);
 }
